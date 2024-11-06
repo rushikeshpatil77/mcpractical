@@ -1,0 +1,43 @@
+DC Motor :
+#include <reg51.h>
+sbit motor_pin1 = P1^0;
+sbit motor_pin2 = P1^1;
+sbitbutton_reverse = P2^0;
+bit motor_direction = 0;
+void delay(unsigned int time) {
+unsigned int i, j;
+for(i = 0; i< time; i++) {
+for(j = 0; j < 1275; j++);
+}}
+void low_speed_delay(unsigned int time) {
+unsigned int i, j;
+for(i = 0; i< time; i++) {
+for(j = 0; j < 100000; j++); // Increase delay significantly to slow
+down motor
+}}
+void main() {
+motor_pin1 = 1;
+motor_pin2 = 0;
+while(1) {
+if(button_reverse == 0) {
+delay(50);
+while(button_reverse == 0);
+
+motor_direction= !motor_direction;
+if(motor_direction == 1) {
+motor_pin1 = 0;
+motor_pin2 = 1;
+} else {
+motor_pin1 = 1;
+motor_pin2 = 0;
+}
+delay(50);
+}
+motor_pin1 = 1;
+motor_pin2 = 0;
+low_speed_delay(10); // Motor ON for a long time to achieve low
+speed
+motor_pin1 = 0;
+motor_pin2 = 0; // Motor OFF to simulate slow rotation
+low_speed_delay(10); // OFF delay to reduce effective RPM
+}}

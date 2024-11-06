@@ -1,0 +1,15 @@
+EXP3_Triangular
+#include<reg51.h>
+void main()
+{int count;
+P0=0X00;
+P0=0X00;
+for(count=0X00;count&lt;0Xff;count++)
+{P0=count;
+}
+P0=0Xff;
+P0=0Xff;
+for(count=0Xff;count&lt;0X00;count--)
+{P0=count;
+}
+}

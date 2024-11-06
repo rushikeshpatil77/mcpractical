@@ -1,0 +1,24 @@
+7 Segment Code :
+#include <reg51.h>;
+void delay (int k);
+void main()
+{
+unsigned char i;
+unsigned char arr[10] = {0x3f, oxo6, oxsB Ox4F, OX66, 0x6D, Ox7D, 0x07, Ox7F,
+0x67};
+P0 = 0x00;
+while (1)
+{
+for (i=0;i<10;i++)
+{
+P0 = arr[i];
+delay(100);
+}
+}
+}
+void delay (int k)
+{
+int i, j;
+
+for (i=0; i<k; i++)
+}
